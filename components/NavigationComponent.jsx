@@ -1,6 +1,6 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { CommonActions, useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
 
 
 const NavigationComponent = () => {
@@ -9,22 +9,22 @@ const NavigationComponent = () => {
 
     return (
     <View style={styles.nav_box}>
-        <TouchableOpacity style={styles.nav_btn} onPress={()=>navigation.navigate('Dashboard')}>
+        <TouchableOpacity style={styles.nav_btn} onPress={()=>navigation.replace('Dashboard')}>
         <Image style={styles.nav_img} source={require('../assets/icons/home.png')} />
         <Text style={styles.nav_text}>Home</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.nav_btn}>
+        <TouchableOpacity style={styles.nav_btn} onPress={()=>navigation.replace('AddBorrower')}>
         <Image style={styles.nav_img} source={require('../assets/icons/borrow.png')} />
         <Text style={styles.nav_text}>Add Borrower</Text>
         </TouchableOpacity>
 
-                <TouchableOpacity style={styles.nav_btn}>
+                <TouchableOpacity style={styles.nav_btn} onPress={()=>navigation.replace('History')}>
         <Image style={styles.nav_img} source={require('../assets/icons/list.png')} />
         <Text style={styles.nav_text}>History</Text>
         </TouchableOpacity>
 
-    <TouchableOpacity style={styles.nav_btn} onPress={()=>navigation.dispatch(CommonActions.navigate('Login'))}>
+    <TouchableOpacity style={styles.nav_btn} onPress={()=>navigation.reset({index : 0, routes : [{ name : "Login"}] })}>
         <Image style={styles.nav_img} source={require('../assets/icons/settings.png')} />
         <Text style={styles.nav_text}>Settings</Text>
         </TouchableOpacity>

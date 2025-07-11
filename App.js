@@ -1,10 +1,10 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import DashboardScreen from './screens/DashboardScreen';
+import AddBorrowerScreen from './screens/AddBorrowerScreen';
+import HistoryScreen from './screens/HistoryScreen';
 
 export default function App() {
 
@@ -17,6 +17,8 @@ export default function App() {
         <Stack.Screen name='Login' component={LoginScreen} /> 
         <Stack.Screen name='Register' component={RegisterScreen} /> 
         <Stack.Screen name='Dashboard' component={DashboardScreen} /> 
+        <Stack.Screen name='AddBorrower' component={AddBorrowerScreen} />
+        <Stack.Screen name='History' component={HistoryScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -14,7 +14,7 @@ export default function LoginScreen() {
 
 
   const login_user = () => {
-    navigation.navigate('Dashboard')
+    navigation.reset({index : 0, routes : [{ name : "Dashboard"}] })
   }
 
 
@@ -32,7 +32,7 @@ export default function LoginScreen() {
             </View>
             <ButtonComponent name={'Login'} onPress={login_user} />
         </View>
-        <TouchableOpacity style={global.m1} onPress={()=>navigation.navigate('Register')}><Text>Click Here To Register.</Text></TouchableOpacity>
+        <TouchableOpacity style={global.m1} onPress={()=>navigation.replace('Register')}><Text>Click Here To Register.</Text></TouchableOpacity>
     </SafeAreaView>
   )
 }
