@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 import styles from '../styles/LoginStyle'
+import global from '../styles/Styles'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import InputTextComponent from '../components/InputTextComponent'
 import ButtonComponent from '../components/ButtonComponent'
@@ -19,7 +20,7 @@ export default function LoginScreen() {
 
 
   return (
-    <SafeAreaView style={styles.view}>
+    <SafeAreaView style={global.container}>
         <Text style={styles.title}>Borrower Tracker</Text>
         <Text>Login your Account.</Text>
         <View style={styles.forms}>
@@ -31,7 +32,7 @@ export default function LoginScreen() {
             </View>
             <ButtonComponent name={'Login'} onPress={login_user} />
         </View>
-        <TouchableOpacity style={styles.m1} onPress={()=>navigation.navigate('Register')}><Text>Click Here To Register.</Text></TouchableOpacity>
+        <TouchableOpacity style={global.m1} onPress={()=>navigation.navigate('Register')}><Text>Click Here To Register.</Text></TouchableOpacity>
     </SafeAreaView>
   )
 }

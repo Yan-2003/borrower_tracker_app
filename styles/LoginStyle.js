@@ -2,13 +2,6 @@ import { StyleSheet } from "react-native"
 
 
 const styles = StyleSheet.create({
-    view : {
-        flex : 1,
-        justifyContent : 'center',
-        alignItems : 'center',
-    },
-
-
     forms : {
         width : '75%'
     },
@@ -27,9 +20,6 @@ const styles = StyleSheet.create({
         padding : 5,
     },
 
-    m1 : {
-        marginTop : 10,
-    }
 })
 
 module.exports = styles
