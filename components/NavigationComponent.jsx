@@ -24,7 +24,7 @@ const NavigationComponent = () => {
         <Text style={styles.nav_text}>History</Text>
         </TouchableOpacity>
 
-    <TouchableOpacity style={styles.nav_btn} onPress={()=>navigation.reset({index : 0, routes : [{ name : "Login"}] })}>
+    <TouchableOpacity style={styles.nav_btn} onPress={()=>navigation.replace('Settings')}>
         <Image style={styles.nav_img} source={require('../assets/icons/settings.png')} />
         <Text style={styles.nav_text}>Settings</Text>
         </TouchableOpacity>

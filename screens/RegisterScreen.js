@@ -1,5 +1,6 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text } from 'react-native'
 import React, { useState } from 'react'
+import global from '../styles/Styles'
 import styles from '../styles/LoginStyle'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import InputTextComponent from '../components/InputTextComponent'
@@ -16,7 +17,7 @@ export default function RegisterScreen() {
   const navigation = useNavigation()
 
   return (
-     <SafeAreaView style={styles.view}>
+     <SafeAreaView style={global.container}>
         <Text style={styles.title}>Borrower Tracker</Text>
         <Text>Create your Account.</Text>
         <View style={styles.forms}>

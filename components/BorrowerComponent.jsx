@@ -18,7 +18,7 @@ export default BorrowerComponent
 
 const styles = StyleSheet.create({
     box : {
-        padding : 10, 
+        padding : 20, 
         backgroundColor : 'rgb(134,137,247)',
         marginTop : 10,
         borderRadius : 10,
