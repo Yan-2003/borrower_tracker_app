@@ -5,6 +5,7 @@ import RegisterScreen from './screens/RegisterScreen';
 import DashboardScreen from './screens/DashboardScreen';
 import AddBorrowerScreen from './screens/AddBorrowerScreen';
 import HistoryScreen from './screens/HistoryScreen';
+import BorrowerScreen from './screens/BorrowerScreen';
 
 export default function App() {
 
@@ -19,6 +20,7 @@ export default function App() {
         <Stack.Screen name='Dashboard' component={DashboardScreen} /> 
         <Stack.Screen name='AddBorrower' component={AddBorrowerScreen} />
         <Stack.Screen name='History' component={HistoryScreen} />
+        <Stack.Screen name='Borrower' component={BorrowerScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

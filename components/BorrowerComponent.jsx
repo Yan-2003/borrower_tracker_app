@@ -1,12 +1,16 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 
-const BorrowerComponent = () => {
+const BorrowerComponent = ({id}) => {
+
+    const navigation = useNavigation()
+
   return (
-    <View style={styles.box}>
+    <TouchableOpacity style={styles.box} onPress={()=>navigation.navigate('Borrower', {borrower_id: id})}>
         <Image style={styles.icon} source={require('../assets/icons/user.png')} />
         <Text style={styles.text}>BorrowerComponent</Text>
-    </View>
+    </TouchableOpacity>
   )
 }
 
