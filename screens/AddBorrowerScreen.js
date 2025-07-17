@@ -6,8 +6,6 @@ import styles from '../styles/AddBorrowerStyles'
 import NavigationComponent from '../components/NavigationComponent'
 import InputTextComponent from '../components/InputTextComponent'
 import ButtonComponent from '../components/ButtonComponent'
-import { Picker } from '@react-native-picker/picker'
-import CalendarCompoent from '../components/CalendarCompoent'
 export default function AddBorrowerScreen() {
   return (
     <SafeAreaView style={global.view}>
@@ -19,13 +17,6 @@ export default function AddBorrowerScreen() {
           <InputTextComponent placeholder={'Last Name'} />
           <InputTextComponent placeholder={'Amount Borrowed'} />
           <InputTextComponent placeholder={'Interest Rate'} />
-          <Picker>
-            <Picker.Item label='Daily' />
-            <Picker.Item label='Weekly' />
-            <Picker.Item label='Monthly' />
-          </Picker>
-
-          <CalendarCompoent />
         </ScrollView>
 
         <ButtonComponent name={'Add Borrower'} />

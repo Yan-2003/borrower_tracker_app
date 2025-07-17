@@ -7,13 +7,14 @@ import InputTextComponent from '../components/InputTextComponent'
 import ButtonComponent from '../components/ButtonComponent'
 import Checkbox from 'expo-checkbox'
 import { useNavigation } from '@react-navigation/native'
+import login_controller from '../controller/LoginController'
 
 export default function LoginScreen() {
 
   const navigation = useNavigation()
 
-
   const login_user = () => {
+    login_controller()
     navigation.reset({index : 0, routes : [{ name : "Dashboard"}] })
   }
 
