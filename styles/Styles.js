@@ -17,6 +17,15 @@ const global = StyleSheet.create({
         body :{
         flex : 1,
         padding : 20,
+    },
+    icon :{
+        width : 24,
+        height : 24,
+    },
+    image : {
+        width : 100,
+        height : 100,
+        margin : 5,
     }
 })
 
