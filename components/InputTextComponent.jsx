@@ -1,9 +1,9 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native'
 import React from 'react'
 
-const InputTextComponent = ({placeholder, onTextChange, value}) => {
+const InputTextComponent = ({placeholder, onTextChange, value, failed=false}) => {
   return (
-    <View style={styles.box}>
+    <View style={ !failed ? styles.box : styles.warning_box}>
       <TextInput onChangeText={onTextChange} value={value} style={styles.input} placeholder={placeholder} />
     </View>
   )
@@ -21,5 +21,13 @@ const styles = StyleSheet.create({
     },
     input : {
         fontSize : 20,
+    },
+
+    warning_box : {
+       padding : 10,
+        borderColor : 'red',
+        borderWidth : 1,
+        margin : 5,
+        borderRadius : 10,
     }
 })

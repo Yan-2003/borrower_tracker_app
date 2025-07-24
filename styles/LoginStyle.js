@@ -20,6 +20,19 @@ const styles = StyleSheet.create({
         padding : 5,
     },
 
+    name : {
+        fontSize : 20,
+        alignSelf : 'center',
+        fontWeight : 700,
+        marginTop : 20,
+    },  
+
+    email : {
+        alignSelf : 'center',
+        margin : 5,
+        fontStyle : 'italic'
+    }
+
 })
 
 module.exports = styles

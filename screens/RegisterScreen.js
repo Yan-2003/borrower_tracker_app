@@ -1,5 +1,5 @@
 import { View, Text } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import global from '../styles/Styles'
 import styles from '../styles/LoginStyle'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -19,25 +19,52 @@ export default function RegisterScreen() {
   const [isLoading, setisLoading] = useState(false);
 
 
-  const [FirstName, setFirstName] = useState();
-  const [MiddleName, setMiddleName] = useState();
-  const [LastName, setLastName] = useState();
-  const [Email, setEmail] = useState();
-  const [Passowrd, setPassowrd] = useState();
-  const [ConfirmPassword, setConfirmPassword] = useState();
+  const [FirstName, setFirstName] = useState('');
+  const [MiddleName, setMiddleName] = useState('');
+  const [LastName, setLastName] = useState('');
+  const [Email, setEmail] = useState('');
+  const [Password, setPassword] = useState('');
+  const [ConfirmPassword, setConfirmPassword] = useState('');
 
 
-  const next = () => {
+  const [isFNameEmpty, setisFNameEmpty] = useState(false);
+  const [isMNameEmpty, setisMNameEmpty] = useState(false);
+  const [isLNameEmpty, setisLNameEmpty] = useState(false);
+  const [isEmailEmpty, setisEmailEmpty] = useState(false);
+
+  const next_is_email = () => {
     setisLoading(true)
-    setTimeout(()=>{
-      if(isName == true){
+    setTimeout(() => {
+      setisFNameEmpty(false)
+      setisMNameEmpty(false)
+      setisLNameEmpty(false)
+  
+      if(FirstName.length == 0) setisFNameEmpty(true)
+      if(MiddleName.length == 0) setisMNameEmpty(true)
+      if(LastName.length == 0) setisLNameEmpty(true)
+  
+      if(!FirstName.length == 0 && !MiddleName.length == 0 && !LastName.length == 0){
         setisName(false)
         setisEmail(true)
-        setisLoading(false)
       }
-    }, 1000)
+  
+      return setisLoading(false)
+    }, 1000);
+    
   }
 
+
+  const next_is_password = () => {
+    setisLoading(true)
+    setTimeout(() => {
+      setisEmailEmpty(false)
+      if(Email.length == 0) setisEmailEmpty(true)
+      if(!Email.length == 0){
+
+      } 
+      return setisLoading(false)
+    }, 1000);
+  }
 
   useEffect(() => {
     setisLoading(true)
@@ -49,6 +76,18 @@ export default function RegisterScreen() {
       
     }
   }, []);
+
+
+  useEffect(() => {
+      setisFNameEmpty(false)
+      setisMNameEmpty(false)
+      setisLNameEmpty(false)
+      setisEmailEmpty(false)
+  
+    return () => {
+      
+    }
+  }, [FirstName, MiddleName, LastName, Email]);
 
 
 
@@ -65,20 +104,31 @@ export default function RegisterScreen() {
               :
               isName ?
               <>
-                <InputTextComponent placeholder={'First Name'} />
-                <InputTextComponent placeholder={'Middel Name'} />
-                <InputTextComponent placeholder={'Last Name'} />
-                <ButtonComponent name={'Next'} onPress={()=>next()} />
+                <InputTextComponent failed={isFNameEmpty} placeholder={'First Name'} onTextChange={e => setFirstName(e)} value={FirstName} />
+                <InputTextComponent failed={isMNameEmpty} placeholder={'Middel Name'} onTextChange={e=> setMiddleName(e)} value={MiddleName} />
+                <InputTextComponent failed={isLNameEmpty} placeholder={'Last Name'} onTextChange={e=> setLastName(e)} value={LastName} />
+                <ButtonComponent name={'Next'} onPress={()=>next_is_email()} />
                 <ButtonComponent name={'Back'} onPress={()=>navigation.goBack()} />
               </>
               :
               isEmail ? 
               <>
-                <InputTextComponent placeholder={'Email'} />
-                <ButtonComponent name={'Next'} />
+                <Text style={styles.name}>{FirstName} {MiddleName[0]}. {LastName}</Text>
+                <InputTextComponent placeholder={'Email'} failed={isEmailEmpty} onTextChange={e => setEmail(e)} value={Email} />
+                <ButtonComponent name={'Next'} onPress={()=> next_is_password()} />
                 <ButtonComponent name={'Back'} onPress={()=>navigation.goBack()} />
               </>
               : 
+              isPassowrd ? 
+                <>
+                  <Text style={styles.name}>{FirstName} {MiddleName[0]}. {LastName}</Text>
+                   <Text style={styles.email}>{Email}</Text>
+                  <InputTextComponent placeholder={'Password'} onTextChange={e => setPassword(e)} value={Password} />
+                  <InputTextComponent placeholder={'Confirm Password'} onTextChange={e => setConfirmPassword(e)} value={ConfirmPassword} />
+                  <ButtonComponent name={'Create Account'} />
+                  <ButtonComponent name={'Back'} onPress={()=>navigation.goBack()} />
+                </>
+              :
               <>
                 <Text>Error While Creating Account Please Try Again Later.</Text>
                 <ButtonComponent name={'Back'} onPress={()=>navigation.goBack()} />
